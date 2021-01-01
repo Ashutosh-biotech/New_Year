@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEW YEAR 2021 ~ AI</title>
+    <script src="../jquery/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="shortcut icon" href="https://ashutosh-biotech.github.io/AI.github.io/Ai.png" type="image/x-icon">
+    <script src="../w3 js/w3.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        body {
+            background-color: crimson;
+            height: 100vh;
+            width: 100vw;
+            cursor: pointer;
+        }
+
+        .newYear {
+            left: 50%;
+            top: 80%;
+            transform: translateX(-50%);
+            position: absolute;
+        }
+
+        .opp0 {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="mainPage cursor-pointer">
+        <div class="w3-display-middle w3-text-white w3-jumbo" id="clock">5</div>
+    </div>
+
+    <div id="wish">
+        <div class="pastYear w3-display-middle" id="past" style="display: none;">
+            <div class="w3-jumbo w3-text-white">202<img src="0.png" class="w3-spin co19 cursor-pointer" alt=""
+                    height="100" width="100" style="z-index: 100;"></div>
+            <br>
+            <p class="w3-text-white guide">Click Corona, Kill Corona</p>
+        </div>
+        <div class="newYear" id="new" style="display: none;">
+            <div class="w3-jumbo" style="color: crimson;"><span style="opacity: 0;">202</span><img src="1.png" class=""
+                    alt="" height="100" width="20"></div>
+        </div>
+        <br>
+    </div>
+    
+    <center>
+        <div class="wish w3-display-middle w3-xxxlarge w3-text-white" style="display: none;opacity: 0;">WISH YOU<br>
+            HAPPY NEW YEAR <BR>2021</div>
+    </center>
+
+    <div class="feedback w3-bottom w3-container">
+        <p class="w3-text-teal cursor-pointer w3-margin w3-padding w3-large">FEEDBACK</p>
+    </div>
+
+</body>
+<script>
+    $(".feedback").click(function (e) {
+        e.preventDefault();
+        window.location.assign = "";
+    });
+    let virus = window.innerWidth;
+    if (virus < 550) {
+        document.getElementById("new").innerHTML = '<div class="w3-xxxlarge" style="color: crimson;"><span style="opacity: 0;">202</span><img src="1.png" class="" alt="" height="100" width="20"></div>';
+        document.getElementById("past").innerHTML = '<div class="w3-xxxlarge w3-text-white">202<img src="0.png" alt="" height="50" class="w3-spin co19 cursor-pointer" width="50" style="z-index: 100;"></div><br><p class="w3-text-white guide">Click Corona,<br> Kill Corona</p>';
+    }
+    let int = setInterval(clk, 1000);
+
+    function clk() {
+        let clock = document.getElementById("clock");
+        let time = eval(clock.innerText)
+        time = time - 1;
+        document.getElementById("clock").innerText = time;
+        if (time == 0) {
+            clearInterval(int);
+            clock.style.display = "none";
+            pastYear();
+        }
+    }
+
+    function pastYear() {
+        let clock = document.getElementById("past");
+        clock.style.display = "block";
+    }
+
+    $(".co19").click(function (e) {
+        e.preventDefault();
+        debugger
+        $(".guide").addClass("opp0");
+        $("#new").show();
+        $("#new").animate(
+            {
+                zIndex: 1,
+                top: "50%",
+            }, 1000
+        );
+        $(".co19").animate(
+            {
+                opacity: "0",
+            }, 1000
+        );
+        $("#new").animate(
+            {
+                zIndex: 1,
+                top: "33%",
+            }, 900
+        );
+        $("#wish").animate(
+            {
+                opacity: "0",
+            }, 7000
+        );
+        $(".wish").show();
+        $(".wish").animate(
+            {
+                opacity: "1",
+            }, 20000
+        );
+
+    });
+
+
+</script>
+
+</html>
